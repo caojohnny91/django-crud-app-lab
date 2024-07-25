@@ -78,6 +78,7 @@ DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
         "NAME": "bookcollector",
+        "PORT": "5432",
     }
 }
 
