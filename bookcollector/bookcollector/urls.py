@@ -20,5 +20,5 @@ from django.urls import path, include
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("", include("my_app.urls")),  # Mounts main_app's routes at the root URL
+    path("", include("my_app.urls")),  # Mounts my_app's routes at the root URL
 ]
