@@ -7,7 +7,7 @@
 </section>
 
 <section class="card-container">
-  {% for author in authors %}
+  {% if authors %} {% for author in authors %}
   <div class="card">
     <div class="card-content">
       <div class="card-img-container">
@@ -15,10 +15,11 @@
       </div>
       <h2 class="card-title">{{ author.name }}</h2>
       <p>DOB: {{ author.date_of_birth }}</p>
-      <p>Nationality: {{author.nationality}}</p>
+      <p>Nationality: {{ author.nationality }}</p>
     </div>
   </div>
-  {% endfor %}
+  {% endfor %} {% else %}
+  <h2>No authors! Please add your favorites!</h2>
+  {% endif %}
 </section>
-
 {% endblock %}
