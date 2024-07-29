@@ -9,7 +9,7 @@
 <section class="card-container">
   {% if authors %} {% for author in authors %}
   <div class="card">
-    <a href="/authors/{{ author.id }}">
+    <a href="{% url 'author-detail' author.id %}">
         <div class="card-content">
           <div class="card-img-container">
             <img src="{% static 'images/sk8r-boi-cat.svg' %}" alt="A skater boy cat" />
