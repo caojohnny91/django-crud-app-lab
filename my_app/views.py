@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 # Import HttpResponse to send text-based responses for testing
 from django.http import HttpResponse
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Author
 
 # Create your views here.
@@ -11,7 +11,17 @@ from .models import Author
 class AuthorCreate(CreateView):
     model = Author
     fields = ["name", "date_of_birth", "nationality"]
-    success_url = '/authors/'
+    success_url = "/authors/"
+
+
+class AuthorUpdate(UpdateView):
+    model = Author
+    fields = ["name", "date_of_birth", "nationality"]
+
+
+class AuthorDelete(DeleteView):
+    model = Author
+    success_url = "/authors/"
 
 
 def home(request):

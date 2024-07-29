@@ -7,4 +7,6 @@ urlpatterns = [
     path("authors/", views.author_index, name="author-index"),
     path("authors/<int:author_id>", views.author_detail, name="author-detail"),
     path("authors/create/", views.AuthorCreate.as_view(), name="author-create"),
+    path("/<int:pk>", views.AuthorUpdate.as_view(), name="author-update"),
+    path("/<int:pk>", views.AuthorDelete.as_view(), name="author-delete"),
 ]

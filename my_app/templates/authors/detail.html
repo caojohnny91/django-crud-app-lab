@@ -10,5 +10,9 @@
     <h2>DOB: {{ author.date_of_birth }}</h2>
     <h2>Nationality: {{ author.nationality }}</h2>
   </div>
+  <div class="author-actions">
+    <a href="{% url 'author-update' author.id %}" class="btn warn">Edit</a>
+    <a href="{% url 'author-delete' author.id %}" class="btn danger">Delete</a>
+  </div>
 </section>
 {% endblock %}
