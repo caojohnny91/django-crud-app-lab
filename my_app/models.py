@@ -14,3 +14,13 @@ class Author(models.Model):
 
     def get_absolute_url(self):
         return reverse("author-detail", kwargs={"author_id": self.id})
+
+
+class Book(models.Model):
+    author = models.ForeignKey(Author, on_delete=models.CASCADE)
+    title = models.CharField(max_length=100)
+    genre = models.CharField(max_length=100)
+    publication_date = models.DateField()
+
+    def __str__(self):
+        return self.title
