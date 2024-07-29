@@ -5,5 +5,5 @@ urlpatterns = [
     # add routes below
     path("", views.home, name="home"),
     path("authors/", views.author_index, name="author-index"),
-    path("detail/", views.detail, name="detail"),
+    path("authors/<int:author_id>", views.author_detail, name="author-detail"),
 ]
