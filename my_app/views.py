@@ -11,6 +11,7 @@ from .models import Author
 class AuthorCreate(CreateView):
     model = Author
     fields = ["name", "date_of_birth", "nationality"]
+    success_url = '/authors/'
 
 
 def home(request):
