@@ -2,10 +2,17 @@ from django.shortcuts import render
 
 # Import HttpResponse to send text-based responses for testing
 from django.http import HttpResponse
+from django.views.generic.edit import CreateView
 from .models import Author
 
-
 # Create your views here.
+
+
+class AuthorCreate(CreateView):
+    model = Author
+    fields = ["name", "date_of_birth", "nationality"]
+
+
 def home(request):
     return render(request, "home.html")
 
