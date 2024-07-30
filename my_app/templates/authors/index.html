@@ -11,9 +11,6 @@
   <div class="card">
     <a href="{% url 'author-detail' author.id %}">
         <div class="card-content">
-          <div class="card-img-container">
-            <img src="{% static 'images/sk8r-boi-cat.svg' %}" alt="A skater boy cat" />
-          </div>
           <h2 class="card-title">{{ author.name }}</h2>
           <p>DOB: {{ author.date_of_birth }}</p>
           <p>Nationality: {{ author.nationality }}</p>

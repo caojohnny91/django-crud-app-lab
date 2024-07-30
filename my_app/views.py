@@ -3,8 +3,9 @@ from django.shortcuts import render, redirect
 # Import HttpResponse to send text-based responses for testing
 from django.http import HttpResponse
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from .models import Author
+from .models import Author, Book
 from .forms import BookForm
+from django.urls import reverse_lazy
 
 # Create your views here.
 
@@ -49,3 +50,24 @@ def add_book(request, author_id):
         new_book.author_id = author_id
         new_book.save()
     return redirect("author-detail", author_id=author_id)
+
+
+class BookUpdate(UpdateView):
+    model = Book
+    form_class = BookForm
+    template_name = "books/update_book.html"
+
+    def get_success_url(self):
+        return reverse_lazy(
+            "author-detail", kwargs={"author_id": self.object.author.id}
+        )
+
+
+class BookDelete(DeleteView):
+    model = Book
+    template_name = "books/delete_book.html"
+
+    def get_success_url(self):
+        return reverse_lazy(
+            "author-detail", kwargs={"author_id": self.object.author.id}
+        )

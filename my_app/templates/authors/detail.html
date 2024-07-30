@@ -2,9 +2,6 @@
 <link rel="stylesheet" href="{% static 'css/authors/author-detail.css' %}" />
 {% endblock %} {% block content %}
 <section class="cat-container">
-  <div class="cat-img">
-    <img src="{% static 'images/sk8r-boi-cat.svg' %}" alt="A skater boy cat" />
-  </div>
   <div class="cat-details">
     <h1>{{ author.name }}</h1>
     <h2>DOB: {{ author.date_of_birth }}</h2>
@@ -20,7 +17,6 @@
   <section class="feedings">
     <div class="subsection-title">
       <h2>Books</h2>
-      <img src="{% static 'images/cat-cone.svg' %}" alt="An ice cream cone cat" />
     </div>
     <h3>Add a Book</h3>
     <form action="{% url 'add-book' author.id%}" method="post" class="subsection-content" autocomplete="off">
@@ -42,6 +38,10 @@
           <td>{{book.title}}</td>
           <td>{{book.genre}}</td>
           <td>{{book.publication_date}}</td>
+          <td>
+            <a href="{% url 'update-book' author.id book.id %}" class="btn">Edit</a>
+            <a href="{% url 'delete-book' author.id book.id %}" class="btn">Delete</a>
+          </td>
         </tr>
         {% endfor %}
       </tbody>

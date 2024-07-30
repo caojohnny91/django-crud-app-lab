@@ -10,4 +10,14 @@ urlpatterns = [
     path("<int:pk>/update", views.AuthorUpdate.as_view(), name="author-update"),
     path("<int:pk>/delete", views.AuthorDelete.as_view(), name="author-delete"),
     path("cats/<int:author_id>/add-book/", views.add_book, name="add-book"),
+    path(
+        "authors/<int:author_id>/update-book/<int:pk>/",
+        views.BookUpdate.as_view(),
+        name="update-book",
+    ),
+    path(
+        "authors/<int:author_id>/delete-book/<int:pk>/",
+        views.BookDelete.as_view(),
+        name="delete-book",
+    ),
 ]
