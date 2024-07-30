@@ -21,9 +21,13 @@
     <div class="subsection-title">
       <h2>Books</h2>
       <img src="{% static 'images/cat-cone.svg' %}" alt="An ice cream cone cat" />
-      <img src="{% static 'images/cat-onigiri.svg' %}" alt="A cat as onigiri" />
-      <img src="{% static 'images/kitty-kabob.svg' %}" alt="A kabob of kittens" />
     </div>
+    <h3>Add a Book</h3>
+    <form action="{% url 'add-book' author.id%}" method="post" class="subsection-content" autocomplete="off">
+      {% csrf_token %} {{book_form.as_p}}
+      <button type="submit" class="btn submit">Add Book</button>
+    </form>
+    {%if author.book_set.all.count%}
     <table>
       <thead>
         <tr>
@@ -42,6 +46,11 @@
         {% endfor %}
       </tbody>
     </table>
+    {% else %}
+    <div class="subsection-content">
+      <p>{{author.name}} doesn't have any books added!</p>
+    </div>
+    {% endif %}
   </section>
 </div>
 
