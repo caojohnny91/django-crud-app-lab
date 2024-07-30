@@ -1,4 +1,6 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth.views import LoginView
+
 
 # Import HttpResponse to send text-based responses for testing
 from django.http import HttpResponse
@@ -26,8 +28,8 @@ class AuthorDelete(DeleteView):
     success_url = "/authors/"
 
 
-def home(request):
-    return render(request, "home.html")
+class Home(LoginView):
+    template_name = "home.html"
 
 
 def author_index(request):

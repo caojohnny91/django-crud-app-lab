@@ -15,9 +15,12 @@
       <div class="header-logo-container"></div>
       <nav>
         <ul>
+          {% if user.is_authenticated %}
           <li><a href="{% url "home" %}">Home</a></li>
           <li><a href="{% url "author-index" %}">All Authors</a></li>
           <li><a href="{% url "author-create" %}">Add Author</a></li>
+          {% else %}
+          <li><a href="{% url "home" %}">Login</a></li>
         </ul>
       </nav>
     </header>
