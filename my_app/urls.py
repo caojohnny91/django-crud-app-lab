@@ -20,4 +20,6 @@ urlpatterns = [
         views.BookDelete.as_view(),
         name="delete-book",
     ),
+    path('accounts/signup/', views.signup, name='signup'),
+
 ]

@@ -119,7 +119,10 @@ USE_TZ = True
 
 STATIC_URL = "static/"
 
-LOGIN_REDIRECT_URL = 'author-index'
+LOGIN_URL = 'home'
+LOGIN_REDIRECT_URL = "author-index"
+LOGOUT_REDIRECT_URL = "home"
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
