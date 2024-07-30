@@ -15,4 +15,34 @@
     <a href="{% url 'author-delete' author.id %}" class="btn danger">Delete</a>
   </div>
 </section>
+
+<div class="feedings-toy-container">
+  <section class="feedings">
+    <div class="subsection-title">
+      <h2>Books</h2>
+      <img src="{% static 'images/cat-cone.svg' %}" alt="An ice cream cone cat" />
+      <img src="{% static 'images/cat-onigiri.svg' %}" alt="A cat as onigiri" />
+      <img src="{% static 'images/kitty-kabob.svg' %}" alt="A kabob of kittens" />
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Genre</th>
+          <th>Publication Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for book in author.book_set.all %}
+        <tr>
+          <td>{{book.title}}</td>
+          <td>{{book.genre}}</td>
+          <td>{{book.publication_date}}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </section>
+</div>
+
 {% endblock %}
